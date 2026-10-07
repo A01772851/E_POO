@@ -8,9 +8,7 @@ class Alojamiento:
 
     def mostrar_info(self):
         return f"{self.nombre} ({self.tipo}), Precio: ${self.precio:,.2f}, Capacidad: {self.capacidad} personas"
-
-
-
+                                                                    #.2f para redondear a dos decimales y símbolo de dinero
 
     # Reglas (léelas con atención, no son solo "rellenar")
     # 1. mostrar_info()
@@ -20,8 +18,11 @@ class Alojamiento:
     # El precio debe verse como moneda y la capacidad como número de personas.
 
     def precio_por_persona(self):
-        # COMPLETAR
-        pass
+        if self.precio <= 0 or self.capacidad <= 0:    #Condicionales 
+            return None
+        resultado = self.precio / self.capacidad   #Operación
+        return round(resultado, 2)                 # redondeo a 2 decimales
+
 
     # 2. precio_por_persona()
 
