@@ -7,8 +7,8 @@ class Alojamiento:
         self.capacidad = capacidad
 
     def mostrar_info(self):
-        # COMPLETAR
-        pass
+        return f"{self.nombre} ({self.tipo}), Precio: ${self.precio:,.2f}, Capacidad: {self.capacidad} personas"
+                                                                    #.2f para redondear a dos decimales y símbolo de dinero
 
     # Reglas (léelas con atención, no son solo "rellenar")
     # 1. mostrar_info()
@@ -18,8 +18,11 @@ class Alojamiento:
     # El precio debe verse como moneda y la capacidad como número de personas.
 
     def precio_por_persona(self):
-        # COMPLETAR
-        pass
+        if self.precio <= 0 or self.capacidad <= 0:    #Condicionales 
+            return None
+        resultado = self.precio / self.capacidad   #Operación
+        return round(resultado, 2)                 # redondeo a 2 decimales
+
 
     # 2. precio_por_persona()
 
@@ -51,3 +54,12 @@ departamento = Alojamiento(
 # 2. Mostrar el precio por persona de la casa.
 # 3. Mostrar la información del departamento.
 # 4. Mostrar el precio por persona del departamento.
+
+# 1. Mostrar la información de la casa
+print(casa.mostrar_info())
+# 2. Mostrar el precio por persona de la casa
+print("Precio por persona:", casa.precio_por_persona())
+# 3. Mostrar la información del departamento
+print(departamento.mostrar_info())
+# 4. Mostrar el precio por persona del departamento
+print("Precio por persona:", departamento.precio_por_persona())
